@@ -1131,3 +1131,118 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
   position: relative;
   list-style: disc;
 }
+/* --- СТИЛИ ДЛЯ ЮРИДИЧЕСКИХ СТРАНИЦ (ФИНАЛ) --- */
+.pages {
+  /* Увеличенный отступ сверху, так как хедер фиксированный */
+  padding: 180px 0 100px;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  /* Фоновую сетку можно добавить и сюда для атмосферы, по желанию */
+  background-image:
+      linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Ограничиваем ширину текста для удобства чтения */
+.pages .container {
+  max-width: 900px;
+}
+
+.pages h1 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1.6em, 4vw, 3rem);
+  color: var(--primary-color);
+  margin-bottom: 50px;
+  position: relative;
+  line-height: 1.2;
+}
+
+/* Декоративная неоновая линия под H1 */
+.pages h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 80px;
+  height: 3px;
+  background: var(--primary-color);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+.pages h2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.6rem;
+  color: var(--white);
+  margin: 50px 0 25px;
+}
+
+.pages p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* Стилизация списков (ul) */
+.pages ul {
+  list-style: none; /* Убираем стандартные точки */
+  margin: 30px 0;
+  padding-left: 10px;
+}
+
+.pages li {
+  position: relative;
+  padding-left: 30px; /* Место для своего маркера */
+  margin-bottom: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Кастомные маркеры списка в виде терминальных стрелок */
+.pages li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--primary-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+}
+
+/* Выделенный текст внутри списков */
+.pages li strong {
+  color: var(--white);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Ссылки внутри текста (например, email) */
+.pages a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+  transition: var(--transition);
+  font-family: 'JetBrains Mono', monospace;
+  padding-bottom: 2px;
+}
+
+.pages a:hover {
+  border-bottom-color: var(--primary-color);
+  background: rgba(0, 255, 136, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 255, 136, 0.1);
+}
+
+/* Адаптив для страниц */
+@media (max-width: 768px) {
+  .pages {
+      padding-top: 140px;
+  }
+  .pages h1::after {
+      bottom: -15px;
+      width: 60px;
+  }
+  .pages ul {
+      padding-left: 0;
+  }
+}
